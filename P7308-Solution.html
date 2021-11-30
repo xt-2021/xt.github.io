@@ -75,23 +75,24 @@ int main()
 	}
 	printf(&quot;%lld\n&quot;,ans);
 
-for(int i=1; i&lt;=3000; i++)
-	jsa[i]+=jsa[i-1],jsb[i]+=jsb[i-1];//记录每一个时刻的两队分数
+	for(int i=1; i&lt;=3000; i++)
+		jsa[i]+=jsa[i-1],jsb[i]+=jsb[i-1];//记录每一个时刻的两队分数
 
-for(int i=1; i&lt;=3000; i++)
-{
-	if(jsa[i]&gt;jsb[i] &amp;&amp; jsa[i-1]==jsb[i-1] &amp;&amp; ld==2) //A队反超B队，且在之前是B队领先
-		anss++;
-	if(jsa[i]&lt;jsb[i] &amp;&amp; jsa[i-1]==jsb[i-1] &amp;&amp; ld==1) //B队反超A队，且在之前是A队领先
-		anss++;
-	if(jsa[i]!=jsb[i]) //更新领先队伍
+	for(int i=1; i&lt;=3000; i++)
 	{
-		if(jsa[i]&gt;jsb[i]) ld=1; //A队领先
-		else ld=2; //B队领先
+		if(jsa[i]&gt;jsb[i] &amp;&amp; jsa[i-1]==jsb[i-1] &amp;&amp; ld==2) //A队反超B队，且在之前是B队领先
+			anss++;
+		if(jsa[i]&lt;jsb[i] &amp;&amp; jsa[i-1]==jsb[i-1] &amp;&amp; ld==1) //B队反超A队，且在之前是A队领先
+			anss++;
+		if(jsa[i]!=jsb[i]) //更新领先队伍
+		{
+			if(jsa[i]&gt;jsb[i]) ld=1; //A队领先
+			else ld=2; //B队领先
+		}
 	}
+	printf(&quot;%lld&quot;,anss);
+	return 0;
 }
-printf(&quot;%lld&quot;,anss);
-return 0;
 </code></pre>
 
 
