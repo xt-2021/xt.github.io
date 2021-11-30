@@ -1,41 +1,60 @@
+<html land="en">
+<head>
+<style>
+	h3 {
+		color: skyblue;
+	}
+</style>
+</head>
+<body>
 <p><a href="https://www.luogu.com.cn/problem/P7308">题目传送门</a></p>
 
 <hr/>
 
-<h3>${\color{SkyBlue}Analysis}$</h3>
+<h3>Analysis</h3>
 
 <p>我们需要得到<strong>两个问题</strong>的答案：</p>
 
-<ol><li>上半场总共得了多少分？（整场比赛持续 $4 \times 12$ 分钟。）</li><li>发生多少次反超？（一次反超定义为一支队伍在得分<strong>小于对方</strong>后，经过投球使得<strong>得分超过对方</strong>。）</li></ol>
+<ol><li>上半场总共得了多少分？（整场比赛持续 4 × 12 分钟。）</li><li>发生多少次反超？（一次反超定义为一支队伍在得分<strong>小于对方</strong>后，经过投球使得<strong>得分超过对方</strong>。）</li></ol>
 
 <hr/>
 
-<h3>${\color{SkyBlue}Ideas}$</h3>
+<h3>Ideas</h3>
 
 <p>（1）我们首先来解决第一个问题：
-由于整场比赛持续 $4 \times 12$ 分钟，所以上半场比赛共有 $2<em>12</em>60=1440(s)$ 。那么只要 $t_i&lt;=1440$ ，就要增加 $ans$ 。</p>
+由于整场比赛持续 4 × 12 分钟，所以上半场比赛共有 2 × 12 × 60=1440(s) 。那么只要 t_i&lt;=1440 ，就要增加 ans 。</p>
 
 <p>（2）我们接着解决第二个问题：
-<strong>我们可以先计算每一个时刻的分数</strong>。如果有队伍在之前的分数是小于对方，现在的分数是大于对方，那么这就是反超！~~（其实真的很简单！！）~~
+<strong>我们可以先计算每一个时刻的分数</strong>。如果有队伍在之前的分数是小于对方，现在的分数是大于对方，那么这就是反超！<s>（其实真的很简单！！）</s>
 但是，我们需要注意这种情况：</p>
 
-<p>|A队分数|B队分数|
-| :----------: | :----------: |
-| 3 | 4 |
-| 4 | 4 |
-| 4 | 5 |</p>
+<table border="1">
+<tr>
+<th>A队分数</th>
+<th>B队分数</th>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>5</td>
+</tr>
+</table>
 
 <p>这是不算反超的！！（因为B队一直都是领先A队的。）</p>
 
 <hr/>
 
-<h3>${\color{SkyBlue}Code}$</h3>
+<h3>Code</h3>
 
-<p><code></code>`cpp</p>
-
-<h1>include&lt;bits/stdc++.h&gt;</h1>
-
-<p>using namespace std;
+<pre><code class="language-cpp">include&lt;bits/stdc++.h&gt;
+using namespace std;
 long long n,m,ans=0,anss=0,ld;//ld是记录当前谁领先（a=&gt;1,b=&gt;2)
 int a[3000],b[3000],jsa[3000],jsb[3000];
 int main()
@@ -54,9 +73,9 @@ int main()
 		if(b[i]&lt;=1440) ans++;//在上半场得分
 		jsb[b[i]]=1;
 	}
-	printf(&quot;%lld\n&quot;,ans);</p>
+	printf(&quot;%lld\n&quot;,ans);
 
-<pre><code>for(int i=1; i&lt;=3000; i++)
+for(int i=1; i&lt;=3000; i++)
 	jsa[i]+=jsa[i-1],jsb[i]+=jsb[i-1];//记录每一个时刻的两队分数
 
 for(int i=1; i&lt;=3000; i++)
@@ -72,11 +91,13 @@ for(int i=1; i&lt;=3000; i++)
 	}
 }
 printf(&quot;%lld&quot;,anss);
-return 0;</code></pre>
+return 0;
+</code></pre>
 
-<p>}
-<code></code>`</p>
+
 
 <hr/>
 
 <p>说明：By Xin。本人乃2016级小学生，思路比较简单，题解如有写的不好的地方请指正。</p>
+</body>
+</html>
