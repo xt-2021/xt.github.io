@@ -1,0 +1,27 @@
+{
+  "config": {
+    "branch": "main",
+    "domain": "https://xinttao.github.io",
+    "email": "Tao_163495@163.com",
+    "platform": "github",
+    "privateKey": "",
+    "repository": "xinttao.github.io",
+    "token": "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",
+    "username": "xinTtao"
+  },
+  "comment": {
+    "commentPlatform": "gitalk",
+    "disqusSetting": {
+      "api": "",
+      "apikey": "",
+      "shortname": ""
+    },
+    "gitalkSetting": {
+      "clientId": "",
+      "clientSecret": "",
+      "owner": "",
+      "repository": ""
+    },
+    "showComment": false
+  }
+}
